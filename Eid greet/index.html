@@ -86,51 +86,44 @@
             gap: 2rem;
         }
         
+           
         .card-preview {
-            width: 100%;
-            max-width: 600px;
-            aspect-ratio: 16/9;
-            position: relative;
+            border: 5px solid var(--eid-secondary);
             border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        
+        .card-preview:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
         
         .greeting-card {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0c4e6d 0%, #0f7bad 100%);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            padding: 2rem;
-            text-align: center;
-        }
-        
-       .card-bg {
+    position: relative; /* Ensures child elements with absolute positioning are relative to this container */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0c4e6d 0%, #0f7bad 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 2rem;
+    text-align: center;
+}
+.card-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("moon-light-shine-through-window-into-islamic-mosque-interior_1217-2597.avif");
+    background-image: url("WhatsApp Image 2025-03-30 at 00.13.29_15eb00be.jpg");
     background-size: cover; /* Ensures the image covers the entire area */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents tiling */
-    opacity: 0.5; /* Adjust transparency if needed */
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    .card-bg {
-        background-size: contain; /* Ensures the entire image is visible */
-        background-position: top; /* Adjusts the position for better visibility */
-    }
-}
-        
+     /* Adjust transparency if needed */
+}    
         .card-decoration {
             position: absolute;
             width: 100%;
@@ -149,10 +142,17 @@
         }
         
         .star {
-            position: absolute;
-            background-color: var(--eid-secondary);
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-        }
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
         
         .star:nth-child(1) {
             top: 20%;
@@ -251,20 +251,25 @@
             color: var(--eid-secondary);
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             margin-bottom: 1rem;
+            margin-top: 0.2rem;
         }
         
         .eid-message {
             font-size: 1.2rem;
             max-width: 80%;
-            margin-bottom: 1rem;
+            margin-bottom: 0.2rem;
+            margin-top: -0.9-rem;
         }
-        
         .from-name {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--eid-secondary);
-        }
-        
+    position: relative; /* Positions it relative to the .greeting-card */
+    bottom: 0; /* Moves it to the very bottom of the card */
+     /* Adjusts the distance from the right */
+    font-size: 1.5rem;
+    font-weight: bold; /* Makes the text bold */
+    color: var(--eid-secondary); /* Matches the footer color */
+    text-decoration: none; /* Ensures no underline */
+    padding: 10px; /* Optional: Adds padding for better spacing */
+}
         .aou-cc {
             position: absolute;
             bottom: 20px;
@@ -385,17 +390,15 @@
             <div class="card-preview">
                 <div class="greeting-card" id="greetingCard">
                     <div class="card-bg"></div>
+                    <img src="WhatsApp Image 2025-03-30 at 00.39.24_92266edf.jpg"  class="card-bg">
                     <div class="card-decoration">
                         
-                        
-                       
-                       
+                        <div class="star"></div>
+                        <div class="lantern"></div>
                     </div>
                     <div class="card-content">
                         <div class="eid-arabic">نـادي الحاسـب يهنئـكم بحلول عيـد الفطر</div>
-                        <div class="eid-message">عيدكم مبارك، نسأل الله أن يجعله عيد فرح وسعادة، ويحقق لكم كل ما تتمنون.
-
-</div>
+                        <div class="eid-message">عيدكم مبارك، نسأل الله أن يجعله عيد فرح وسعادة، ويحقق لكم كل ما تتمنون</div>
                         <div class="from-name" id="nameDisplay"> Your Name</div>
                     </div>
                     
